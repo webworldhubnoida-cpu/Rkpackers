@@ -68,7 +68,7 @@ export const Gallery = () => {
           {scrollingImages.map((image, index) => (
             <motion.div
               key={index}
-              className="relative flex-shrink-0 w-[300px] md:w-[400px] aspect-[4/3] rounded-[2rem] overflow-hidden shadow-xl border-4 border-white group/item"
+              className="relative flex-shrink-0 w-[300px] md:w-[450px] aspect-video rounded-[2rem] overflow-hidden shadow-xl border-4 border-white group/item"
               whileHover={{ 
                 y: -10,
                 scale: 1.02,

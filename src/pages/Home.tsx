@@ -34,7 +34,7 @@ const Home = () => {
       <Gallery />
       <Team />
       <Testimonials />
-      <Contact showMap={false} />
+      <Contact showMap={false} showBranches={false} />
       <PricingModal isOpen={isPricingModalOpen} onClose={() => setIsPricingModalOpen(false)} />
     </>
   );

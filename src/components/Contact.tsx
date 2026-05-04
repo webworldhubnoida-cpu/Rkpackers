@@ -4,7 +4,7 @@ import { MapPin, Phone, Mail, Clock, Send, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { branches } from '../data/branches';
 
-export const Contact = ({ showMap = true }: { showMap?: boolean }) => {
+export const Contact = ({ showMap = true, showBranches = true }: { showMap?: boolean; showBranches?: boolean }) => {
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -146,53 +146,55 @@ export const Contact = ({ showMap = true }: { showMap?: boolean }) => {
         </div>
 
         {/* Branches Section */}
-        <div className="mt-24">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">Our <span className="text-secondary">Branches</span></h2>
-            <div className="h-1.5 w-24 bg-secondary mx-auto rounded-full mb-6" />
-            <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-              We are expanding our reach to serve you better. Visit us at any of our branch locations.
-            </p>
-          </div>
+        {showBranches && (
+          <div className="mt-24">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4">Our <span className="text-secondary">Branches</span></h2>
+              <div className="h-1.5 w-24 bg-secondary mx-auto rounded-full mb-6" />
+              <p className="text-slate-600 max-w-2xl mx-auto text-lg">
+                We are expanding our reach to serve you better. Visit us at any of our branch locations.
+              </p>
+            </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {branches.map((branch, i) => (
-              <motion.div
-                key={branch.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover:shadow-xl transition-all group"
-              >
-                <div className="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <MapPin size={32} />
-                </div>
-                <h3 className="text-2xl font-bold text-primary mb-4">{branch.city}</h3>
-                <div className="space-y-3 mb-8">
-                  <p className="text-slate-600 flex gap-3 text-sm">
-                    <MapPin size={18} className="text-secondary shrink-0 mt-1" />
-                    <span>{branch.address}</span>
-                  </p>
-                  <p className="text-slate-600 flex gap-3 text-sm">
-                    <Phone size={18} className="text-secondary shrink-0 mt-1" />
-                    <span>{branch.phone}</span>
-                  </p>
-                  <p className="text-slate-600 flex gap-3 text-sm">
-                    <Mail size={18} className="text-secondary shrink-0 mt-1" />
-                    <span>{branch.email}</span>
-                  </p>
-                </div>
-                <Link 
-                  to={`/branches/${branch.id}`}
-                  className="inline-flex items-center gap-2 text-primary font-bold hover:text-secondary transition-colors"
+            <div className="grid md:grid-cols-3 gap-8">
+              {branches.map((branch, i) => (
+                <motion.div
+                  key={branch.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="bg-slate-50 rounded-3xl p-8 border border-slate-100 hover:shadow-xl transition-all group"
                 >
-                  View Details <ArrowRight size={18} />
-                </Link>
-              </motion.div>
-            ))}
+                  <div className="w-16 h-16 bg-primary text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <MapPin size={32} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-primary mb-4">{branch.city}</h3>
+                  <div className="space-y-3 mb-8">
+                    <p className="text-slate-600 flex gap-3 text-sm">
+                      <MapPin size={18} className="text-secondary shrink-0 mt-1" />
+                      <span>{branch.address}</span>
+                    </p>
+                    <p className="text-slate-600 flex gap-3 text-sm">
+                      <Phone size={18} className="text-secondary shrink-0 mt-1" />
+                      <span>{branch.phone}</span>
+                    </p>
+                    <p className="text-slate-600 flex gap-3 text-sm">
+                      <Mail size={18} className="text-secondary shrink-0 mt-1" />
+                      <span>{branch.email}</span>
+                    </p>
+                  </div>
+                  <Link 
+                    to={`/branches/${branch.id}`}
+                    className="inline-flex items-center gap-2 text-primary font-bold hover:text-secondary transition-colors"
+                  >
+                    View Details <ArrowRight size={18} />
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Google Map Placeholder */}
         {showMap && (

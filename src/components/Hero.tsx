@@ -57,7 +57,7 @@ export const Hero = () => {
   const activeImages = isMobile ? heroImagesMobile : heroImages;
 
   return (
-    <section className="relative min-h-screen flex items-center bg-slate-900 overflow-x-hidden">
+    <section className="relative min-h-[600px] md:min-h-0 md:h-auto md:aspect-[16/9] flex items-center bg-slate-900 overflow-x-hidden">
       {/* Background Slider with Parallax & Zoom Effect */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <AnimatePresence>
@@ -84,7 +84,7 @@ export const Hero = () => {
         </AnimatePresence>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full pt-28 md:pt-32 pb-12 md:pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full pt-32 md:pt-40 pb-12 md:pb-20">
         <div className="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Hero Content */}
           <motion.div
@@ -106,19 +106,19 @@ export const Hero = () => {
               Safe, Reliable & Affordable
             </motion.div>
 
-            <h1 className="text-5xl md:text-8xl font-black text-white mb-8 leading-[1] tracking-tighter">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1] tracking-tighter">
               Trusted Packers <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary animate-gradient-x drop-shadow-[0_0_25px_rgba(46,123,170,0.2)]">
                 & Movers in Jhansi
               </span>
             </h1>
             
-            <div className="text-xl md:text-3xl text-white/90 mb-10 font-medium h-12 flex items-center bg-white/5 backdrop-blur-sm px-6 rounded-2xl border border-white/10 w-fit">
+            <div className="text-lg md:text-2xl text-white/90 mb-8 font-medium h-10 flex items-center bg-white/5 backdrop-blur-sm px-5 rounded-xl border border-white/10 w-fit">
               <span className="mr-3 opacity-60">Relocating to</span>
               <Typewriter words={['Home', 'Office', 'Factory', 'Local Shifting', 'Jhansi']} />
             </div>
 
-            <p className="text-lg md:text-xl text-white/70 mb-12 max-w-xl leading-relaxed font-light">
+            <p className="text-base md:text-lg text-white/70 mb-10 max-w-xl leading-relaxed font-light">
               Experience the gold standard in relocation. <span className="text-white font-normal">RK Packers And Movers</span> combine advanced logistics with personalized care for a stress-free move in <span className="text-white font-normal">Jhansi</span>.
             </p>
             
@@ -131,7 +131,7 @@ export const Hero = () => {
                 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => openQuoteModal()}
-                className="bg-secondary text-white px-12 py-6 rounded-2xl font-black text-lg transition-all shadow-2xl relative overflow-hidden group"
+                className="bg-secondary text-white px-10 py-5 rounded-xl font-black text-base transition-all shadow-2xl relative overflow-hidden group"
               >
                 <span className="relative z-10 flex items-center gap-3">
                   Get Free Quote

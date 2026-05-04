@@ -51,7 +51,7 @@ export const ModernWhoWeAre = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-5 h-[500px] lg:h-auto overflow-hidden rounded-2xl shadow-2xl group"
+            className="lg:col-span-5 aspect-video lg:aspect-auto h-auto lg:h-full overflow-hidden rounded-2xl shadow-2xl group"
           >
             <motion.img 
               whileHover={{ scale: 1.05 }}
