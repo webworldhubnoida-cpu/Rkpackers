@@ -6,10 +6,21 @@ import { useQuote } from '../context/QuoteContext';
 export const QuoteModal = () => {
   const { isQuoteModalOpen, closeQuoteModal, selectedCity } = useQuote();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission logic here
-    alert('Quote request submitted successfully!');
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    const message = `*New Quote Request*%0A%0A` +
+      `*Name:* ${data.name}%0A` +
+      `*Phone:* ${data.phone}%0A` +
+      `*From:* ${data.from}%0A` +
+      `*To:* ${data.to}%0A` +
+      `*Type:* ${data.type}%0A` +
+      `*Details:* ${data.details}`;
+
+    const whatsappUrl = `https://wa.me/917706855855?text=${message}`;
+    window.open(whatsappUrl, '_blank');
     closeQuoteModal();
   };
 
@@ -95,6 +106,7 @@ export const QuoteModal = () => {
                     <label className="text-sm font-bold text-slate-700 ml-1">Full Name</label>
                     <input
                       type="text"
+                      name="name"
                       placeholder="John Doe"
                       className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50"
                       required
@@ -104,6 +116,7 @@ export const QuoteModal = () => {
                     <label className="text-sm font-bold text-slate-700 ml-1">Phone Number</label>
                     <input
                       type="tel"
+                      name="phone"
                       placeholder="+91 00000 00000"
                       className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50"
                       required
@@ -116,6 +129,7 @@ export const QuoteModal = () => {
                     <label className="text-sm font-bold text-slate-700 ml-1">Moving From</label>
                     <input
                       type="text"
+                      name="from"
                       defaultValue={selectedCity}
                       placeholder="City Name"
                       className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50"
@@ -126,6 +140,7 @@ export const QuoteModal = () => {
                     <label className="text-sm font-bold text-slate-700 ml-1">Moving To</label>
                     <input
                       type="text"
+                      name="to"
                       placeholder="Destination City"
                       className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50"
                       required
@@ -136,6 +151,7 @@ export const QuoteModal = () => {
                 <div className="space-y-1.5">
                   <label className="text-sm font-bold text-slate-700 ml-1">Type of Shifting</label>
                   <select
+                    name="type"
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50"
                     required
                   >
@@ -152,6 +168,7 @@ export const QuoteModal = () => {
                 <div className="space-y-1.5">
                   <label className="text-sm font-bold text-slate-700 ml-1">Additional Details</label>
                   <textarea
+                    name="details"
                     rows={3}
                     placeholder="Tell us more about your move..."
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50 resize-none"

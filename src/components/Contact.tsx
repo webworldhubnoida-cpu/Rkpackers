@@ -5,6 +5,22 @@ import { Link } from 'react-router-dom';
 import { branches } from '../data/branches';
 
 export const Contact = ({ showMap = true, showBranches = true }: { showMap?: boolean; showBranches?: boolean }) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    
+    const message = `*New Contact Form Submission*%0A%0A` +
+      `*Name:* ${data.name}%0A` +
+      `*Phone:* ${data.phone}%0A` +
+      `*Email:* ${data.email}%0A` +
+      `*Type:* ${data.type}%0A` +
+      `*Message:* ${data.message}`;
+    
+    const whatsappUrl = `https://wa.me/917706855855?text=${message}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -77,12 +93,13 @@ export const Contact = ({ showMap = true, showBranches = true }: { showMap?: boo
             className="bg-slate-50 rounded-3xl p-8 md:p-10 shadow-lg border border-slate-100"
           >
             <h3 className="text-2xl font-bold text-primary mb-8">Send Us a Message</h3>
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-slate-700 ml-1">Full Name</label>
                   <input
                     type="text"
+                    name="name"
                     placeholder="John Doe"
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-white"
                     required
@@ -92,6 +109,7 @@ export const Contact = ({ showMap = true, showBranches = true }: { showMap?: boo
                   <label className="text-sm font-bold text-slate-700 ml-1">Phone Number</label>
                   <input
                     type="tel"
+                    name="phone"
                     placeholder="+91 00000 00000"
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-white"
                     required
@@ -103,6 +121,7 @@ export const Contact = ({ showMap = true, showBranches = true }: { showMap?: boo
                   <label className="text-sm font-bold text-slate-700 ml-1">Email Address</label>
                   <input
                     type="email"
+                    name="email"
                     placeholder="john@example.com"
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-white"
                     required
@@ -111,6 +130,7 @@ export const Contact = ({ showMap = true, showBranches = true }: { showMap?: boo
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-slate-700 ml-1">Type of Shifting</label>
                   <select
+                    name="type"
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-white"
                     required
                   >
@@ -128,6 +148,7 @@ export const Contact = ({ showMap = true, showBranches = true }: { showMap?: boo
               <div className="space-y-2">
                 <label className="text-sm font-bold text-slate-700 ml-1">Your Message</label>
                 <textarea
+                  name="message"
                   rows={4}
                   placeholder="How can we help you?"
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-white resize-none"

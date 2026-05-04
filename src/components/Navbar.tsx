@@ -58,7 +58,7 @@ export const Navbar = () => {
               <img 
                 src="/gallery/logo.png" 
                 alt="RK Packers And Movers" 
-                className="h-12 md:h-16 w-auto object-contain" 
+                className="h-12 md:h-10 w-auto object-contain" 
               />
           
             </motion.div>
