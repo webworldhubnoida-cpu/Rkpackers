@@ -1,0 +1,7 @@
+{
+  "name": "RK Packers And Movers",
+  "description": "RK Packers And Movers - Professional, reliable, and affordable packing and moving services in Jhansi. Home shifting, office relocation, car transport, and more.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
