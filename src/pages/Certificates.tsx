@@ -10,8 +10,15 @@ const Certificates = () => {
       issuer: 'Government of India',
       type: 'MSME Registration',
       description: 'Official registration for Micro, Small, and Medium Enterprises.',
-      fileUrl: '/gallery/udyam.jpeg', // Placeholder path
-      imageUrl: 'https://images.unsplash.com/photo-1633158829585-23ba8f7c8caf?auto=format&fit=crop&q=80&w=800' // Placeholder image
+      fileUrl: '/gallery/udyam.pdf', // Placeholder path
+    },
+      {
+      id: 'udyam',
+      title: 'Udyam Certificate',
+      issuer: 'Government of India',
+      type: 'MSME Registration',
+      description: 'Official registration for Micro, Small, and Medium Enterprises.',
+      fileUrl: '/gallery/udyam2.pdf', // Placeholder path
     },
     {
       id: 'gst',
@@ -19,8 +26,7 @@ const Certificates = () => {
       issuer: 'Goods and Services Tax Network',
       type: 'Tax Registration',
       description: 'Official Goods and Services Tax registration certificate.',
-      fileUrl: '/gallery/gst.jpeg', // Placeholder path
-      imageUrl: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800' // Placeholder image
+      fileUrl: '/gallery/gst.pdf', // Placeholder path
     }
   ];
 
@@ -54,17 +60,7 @@ const Certificates = () => {
               transition={{ delay: i * 0.2 }}
               className="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 group"
             >
-              <div className="relative h-64 overflow-hidden">
-                <img 
-                  src={cert.imageUrl} 
-                  alt={cert.title} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/10 transition-colors" />
-                <div className="absolute top-6 right-6 bg-white p-3 rounded-2xl shadow-lg text-primary">
-                  <ShieldCheck size={32} />
-                </div>
-              </div>
+           
               
               <div className="p-8 md:p-10">
                 <div className="flex items-center gap-3 mb-4">
