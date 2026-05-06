@@ -78,12 +78,12 @@ export const Footer = () => {
             </p>
             <div className="flex flex-wrap gap-3">
               {[
-                { icon: <Facebook size={20} />, href: "#", color: "hover:bg-blue-600" },
-                { icon: <Twitter size={20} />, href: "#", color: "hover:bg-sky-500" },
-                { icon: <Instagram size={20} />, href: "#", color: "hover:bg-pink-600" },
-                { icon: <Linkedin size={20} />, href: "#", color: "hover:bg-blue-700" },
-                { icon: <Youtube size={20} />, href: "#", color: "hover:bg-red-600" },
-                { icon: <PinterestIcon size={20} />, href: "#", color: "hover:bg-red-700" }
+                { icon: <Facebook size={20} />, href: "https://www.facebook.com/rkpackersandmoverss/", color: "hover:bg-blue-600" },
+                { icon: <Twitter size={20} />, href: "https://x.com/r_and12619", color: "hover:bg-sky-500" },
+                { icon: <Instagram size={20} />, href: "https://www.instagram.com/rkpackersandmoverss/", color: "hover:bg-pink-600" },
+                { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/rkpackersandmoverss/", color: "hover:bg-blue-700" },
+                { icon: <Youtube size={20} />, href: "https://www.youtube.com/@rkpackersandmoverss", color: "hover:bg-red-600" },
+                { icon: <PinterestIcon size={20} />, href: "https://in.pinterest.com/rkpackersandmoverss/", color: "hover:bg-red-700" }
               ].map((social, i) => (
                 <motion.a 
                   key={i}
@@ -94,6 +94,8 @@ export const Footer = () => {
                   }}
                   whileTap={{ scale: 0.9 }}
                   href={social.href} 
+                  target={social.href !== "#" ? "_blank" : undefined}
+                  rel={social.href !== "#" ? "noopener noreferrer" : undefined}
                   className={`bg-white/10 p-3.5 rounded-2xl transition-all duration-300 text-white/80 hover:text-white border border-white/5 ${social.color}`}
                 >
                   {social.icon}

@@ -48,12 +48,12 @@ export const TopHeader = () => {
             </div>
 
             <div className="flex items-center gap-3 lg:gap-4 border-l border-white/20 pl-3 lg:pl-4">
-              <a href="#" className="hover:text-secondary transition-colors" title="Facebook"><Facebook size={14} /></a>
-              <a href="#" className="hover:text-secondary transition-colors" title="Twitter"><Twitter size={14} /></a>
-              <a href="#" className="hover:text-secondary transition-colors" title="Instagram"><Instagram size={14} /></a>
-              <a href="#" className="hover:text-secondary transition-colors" title="YouTube"><Youtube size={14} /></a>
-              <a href="#" className="hover:text-secondary transition-colors" title="LinkedIn"><Linkedin size={14} /></a>
-              <a href="#" className="hover:text-secondary transition-colors" title="Pinterest"><PinterestIcon size={14} /></a>
+              <a href="https://www.facebook.com/rkpackersandmoverss/" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" title="Facebook"><Facebook size={14} /></a>
+              <a href="https://x.com/r_and12619" className="hover:text-secondary transition-colors" title="Twitter"><Twitter size={14} /></a>
+              <a href="https://www.instagram.com/rkpackersandmoverss/" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" title="Instagram"><Instagram size={14} /></a>
+              <a href="https://www.youtube.com/@rkpackersandmoverss" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" title="YouTube"><Youtube size={14} /></a>
+              <a href="https://www.linkedin.com/in/rkpackersandmoverss/" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" title="LinkedIn"><Linkedin size={14} /></a>
+              <a href="https://in.pinterest.com/rkpackersandmoverss/" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors" title="Pinterest"><PinterestIcon size={14} /></a>
             </div>
           </div>
         </div>
